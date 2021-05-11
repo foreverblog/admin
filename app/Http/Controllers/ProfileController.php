@@ -66,7 +66,7 @@ class ProfileController extends Controller
         }
         $blog->datelines()->create([
             'date' => date('Y-m-d H:i:s', $time),
-            'content' => $content,
+            'content' => htmlspecialchars($content,ENT_QUOTES),
             'status' => 0,
         ]);
         return $this->success('提交成功，审核通过后将会展示在博客详情页。');

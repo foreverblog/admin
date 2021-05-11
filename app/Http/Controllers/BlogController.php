@@ -110,6 +110,7 @@ class BlogController extends Controller
             }
             $data = $validator->validated();
             $data['status'] = 0;
+            $data['message'] = htmlspecialchars($data['message'],ENT_QUOTES);;
             if (!Blog::create($data)) {
                 return ['code' => 0, 'message' => '申请失败, 请稍后重试!'];
             }

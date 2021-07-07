@@ -167,7 +167,7 @@ class CommentController extends Controller
         $data['is_admin'] = \Encore\Admin\Facades\Admin::user() ? 1 : 0;
         $data['status'] = $isReview->value == 1 ? 2 : 1;
         $data['ip'] = \request()->getClientIp();
-
+        $data['content'] = htmlspecialchars($data['content'],ENT_QUOTES);
         return $data;
     }
 }
